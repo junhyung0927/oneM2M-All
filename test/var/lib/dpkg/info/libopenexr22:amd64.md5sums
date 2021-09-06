@@ -1,0 +1,6 @@
+257aef2c5ced38ea42771952bb18528d  usr/lib/x86_64-linux-gnu/libIlmImf-2_2.so.22.0.0
+cd3b90483eb5f2460ba69b9cc43be345  usr/lib/x86_64-linux-gnu/libIlmImfUtil-2_2.so.22.0.0
+75b7ec2ad01da464c38f12d27b3d6c83  usr/share/doc/libopenexr22/changelog.Debian.gz
+9cad3b8b4d832fd461ad13311f6ffcfd  usr/share/doc/libopenexr22/changelog.gz
+9b2f69b6170263afb4bcb3bb51d62caa  usr/share/doc/libopenexr22/copyright
+74cd2e65825d57af39e66f938b95c45f  usr/share/lintian/overrides/libopenexr22

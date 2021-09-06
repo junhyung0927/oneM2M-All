@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  emqx:
+    image: emqx/emqx:latest
+    restart: always
+    environment:
+      EMQX_NAME: emqx_docker
+      EMQX_HOST: 127.0.0.1
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "18083:18083"
+
+  mobiusdb:
+    restart: always
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=mobiusdb
+      - MYSQL_ROOT_PASSWORD=mysql
+      - TZ=Asia/Seoul
+    volumes:
+      - ./sql/:/docker-entrypoint-initdb.d/
+
+  mobius:
+    restart: always
+    image: nalsm0518/mobius:2.0
+    depends_on:
+      - mobiusdb
+      - emqx
+    ports:
+      - 7579:7579
+    volumes:
+      - ./mobius/:/usr/src/app/
+
+  thyme:
+    restart: always
+    image: nalsm0518/thyme:2.0
+    depends_on:
+      - emqx
+      - mobius
+    ports:
+      - 9727:9727
